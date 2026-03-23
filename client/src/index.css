@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-serif: "New York", "Playfair Display", "Noto Serif SC", serif;
+  
+  --color-primary: #2f5e41; /* Brand Green - "Forest" */
+  --color-secondary: #f5f5f7; /* Apple System Gray 6 */
+  --color-accent: #007AFF; /* Apple Blue */
+  --color-surface: #ffffff;
+  --color-background: #F5F5F7; /* Apple System Background */
+}
+
+@layer base {
+  body {
+    @apply bg-[#F5F5F7] text-[#1D1D1F] font-sans antialiased selection:bg-[#2f5e41] selection:text-white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans tracking-tight text-[#1D1D1F] font-semibold;
+  }
+  
+  /* iOS-style Scrollbar */
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+}
+
+@layer components {
+  /* Apple Style Button */
+  .btn-primary {
+    @apply bg-[#2f5e41] text-white px-6 py-2.5 rounded-full font-medium tracking-wide transition-all duration-200 active:opacity-70 active:scale-95 hover:bg-[#244a33] shadow-none;
+  }
+  
+  /* iOS Blur Material */
+  .glass-panel {
+    @apply bg-white/70 backdrop-blur-xl backdrop-saturate-150 border border-white/20 shadow-sm;
+  }
+
+  /* Apple Card Style */
+  .apple-card {
+    @apply bg-white rounded-[24px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/60 transition-all duration-500 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:scale-[1.01];
+  }
+
+  /* Header Blur */
+  .apple-header {
+    @apply bg-[rgba(255,255,255,0.8)] backdrop-blur-[20px] backdrop-saturate-180 border-b border-[rgba(0,0,0,0.05)];
+  }
+  
+  /* Navigation Pill */
+  .nav-pill {
+    @apply px-4 py-1.5 rounded-full text-sm font-medium text-[#1D1D1F] transition-all duration-200 hover:bg-[rgba(0,0,0,0.05)];
+  }
+  
+  .nav-pill-active {
+    @apply bg-[#1D1D1F] text-white hover:bg-[#1D1D1F];
+  }
+
+  /* Fade In Animation */
+  .fade-in-up {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; /* Apple-style spring curve */
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
